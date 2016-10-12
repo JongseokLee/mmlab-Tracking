@@ -6,7 +6,7 @@ function weights = calWeight(particleStates,blockWise,targetFeature_MV,sigma, nD
 % [Hx,Hy] - size of the target (for now a rectangle, maybe an ellispe in the future)
 % sc - scaling factor
 
-alpa = 0.9;
+alpa = 0.5;
 nParticles = size(particleStates,1);
 
 mv_d       = zeros(nParticles,1);

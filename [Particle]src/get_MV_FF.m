@@ -40,8 +40,6 @@ K = max(K)-K;
 K=K/(2*sum(K));
 
 
-
-
 ang_hist = zeros(1,bins); 
 amp_hist = zeros(1,bins);
 for i = 1 : rows*cols
@@ -49,4 +47,4 @@ for i = 1 : rows*cols
     amp_hist(1,mag__(i)) = amp_hist(1, mag__(i))+K(i);
 end
    
-fore_feature = [ang_hist];
+fore_feature = [ang_hist amp_hist];

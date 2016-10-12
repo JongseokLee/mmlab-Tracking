@@ -4,9 +4,9 @@ close all;
 warning('off', 'MATLAB:MKDIR:DirectoryExists');
 warning('off', 'images:initSize:adjustingMag');
 addpath(genpath('[Particle]src'))
-resultFolder      = '[Particle]Result';
-resultFolder_2015 = 'Result';
-resultFolder_Ivan = 'Result_Ivan';
+resultFolder      = '..\[Particle]Result';
+resultFolder_2015 = '..\Result';
+resultFolder_Ivan = '..\Result_Ivan';
 
 result_version = '/Mask_MV_complete_QP_';
 %% Sequence Parameters
@@ -16,18 +16,18 @@ seqs = InitParams(qp);  %-Sequence info.
 
 
 % for seqIdx = 23 : size(seqs)
-for seqIdx = 7: size(seqs)
+for seqIdx = 1: size(seqs)
 
     
     %% INITIALIZATION
     seq = seqs{seqIdx};
     [startFrame, endFrame] = getSeqParams(seq);
-    fprintf('%3d.\t%s\t SucceceRate ploting begin...\n\n', seqIdx, seq.seqName);
+    fprintf('%3d.\t%s\t SuccessRate ploting begin...\n\n', seqIdx, seq.seqName);
     
 
     TotalFrameNum = endFrame - startFrame-1;
     %% Groundtruth load
-    gt = load(['.\Dataset/' seqs{seqIdx}.seqName '/' seqs{seqIdx}.seqName '_gt.mat']);
+    gt = load(['..\Dataset/' seqs{seqIdx}.seqName '/' seqs{seqIdx}.seqName '_gt.mat']);
 
     gtCornersAll = gt.CornersAll;
     gtCenterAll  = gt.CenterAll;
@@ -94,18 +94,7 @@ for seqIdx = 7: size(seqs)
         mPrecisionRate_Ivan(f)= sum(centerError_Ivan < f-1)/length(centerError_Ivan);
     end
     
-    
-%     figure(100); plot([startFrame :1 : endFrame],overlapRate*100     ,'LineWidth',1.5,'Color','r'); hold on;
-%     figure(100); plot([startFrame :1 : endFrame],overlapRate_2015*100     ,'LineWidth',1.5,'Color','g'); hold on;
-%     figure(100); plot([startFrame :1 : endFrame],overlapRate_Ivan*100     ,'LineWidth',1.5,'Color','b'); hold on;
-%     
-%     figure(101); plot([startFrame+1 :1 : endFrame],centerError     ,'LineWidth',1.5,'Color','r'); hold on;
-%     figure(101); plot([startFrame+1 :1 : endFrame],centerError_2015     ,'LineWidth',1.5,'Color','g'); hold on;
-%     figure(101); plot([startFrame+1 :1 : endFrame],centerError_Ivan     ,'LineWidth',1.5,'Color','b'); hold on;
-    
-    
-    
-    figure(seqIdx);title(['SuccessRate OPE  ' seqs{seqIdx}.seqName]);  drawnow; hold on;
+    figure(seqIdx);title(['SuccessRate  ' seqs{seqIdx}.seqName]);  drawnow; hold on;
     figure(seqIdx); plot([0 : 0.01 : 1],mSuccessRate     ,'LineWidth',1.5,'Color','r'); hold on;
     figure(seqIdx); plot([0 : 0.01 : 1],mSuccessRate_2015,'LineWidth',1.5,'Color','g'); hold on;
     figure(seqIdx); plot([0 : 0.01 : 1],mSuccessRate_Ivan,'LineWidth',1.5,'Color','b'); hold on;
@@ -113,8 +102,12 @@ for seqIdx = 7: size(seqs)
            ['KW 2015 [' sprintf('%f',mOverlapRate_2015) ']'],...
            ['Ivan         [' sprintf('%f',mOverlapRate_Ivan) ']']);
     hold off;
-
-    figure(seqIdx+100);title(['Precision OPE  ' seqs{seqIdx}.seqName]);  drawnow; hold on;
+    frm = getframe(gcf);
+    [img_result, Map] = frame2im(frm);
+    folderPath = [resultFolder '/' seqs{seqIdx}.seqName '/compare_MV_complete_QP_' sprintf('%d',qp)]; mkdir(folderPath);
+    imwrite(img_result, [folderPath '/SuccessRate.png'], 'png', 'BitDepth',8);
+    
+    figure(seqIdx+100);title(['PrecisionRate  ' seqs{seqIdx}.seqName]);  drawnow; hold on;
     figure(seqIdx+100); plot([0 : 1 : 50],mPrecisionRate     ,'LineWidth',1.5,'Color','r'); hold on;
     figure(seqIdx+100); plot([0 : 1 : 50],mPrecisionRate_2015,'LineWidth',1.5,'Color','g'); hold on;
     figure(seqIdx+100); plot([0 : 1 : 50],mPrecisionRate_Ivan,'LineWidth',1.5,'Color','b'); hold on;
@@ -122,16 +115,16 @@ for seqIdx = 7: size(seqs)
            ['KW 2015 [' sprintf('%f',1-(mCenterError_2015/50)) ']'],...
            ['Ivan         [' sprintf('%f',1-(mCenterError_Ivan/50)) ']']);
     hold off;
-    
-    
-    
-    
-    
-    
     frm = getframe(gcf);
     [img_result, Map] = frame2im(frm);
     folderPath = [resultFolder '/' seqs{seqIdx}.seqName '/compare_MV_complete_QP_' sprintf('%d',qp)]; mkdir(folderPath);
-    imwrite(img_result, [folderPath '/SuccessRate.png'], 'png', 'BitDepth',8);
+    imwrite(img_result, [folderPath '/PrecisionRate.png'], 'png', 'BitDepth',8);
+    
+    
+    
+    
+    
+    
     
     fprintf('%3d.\t%s\tSucceceRate ploting end\n\n', seqIdx, seq.seqName);
     break;

@@ -22,7 +22,7 @@ if r > blockWise(2)
 end
 for i = t : b
     for j = l : r
-        K(i-t+1,j-l+1) = max(abs(i-state(1)),abs(j-state(2)));
+        K(i-t+1,j-l+1) = abs(i-state(1))+abs(j-state(2)); %% manhattan distance
     end
 end
 
@@ -45,4 +45,4 @@ for i = 1 : rows*cols
     amp_hist(1,mag__(i)) = amp_hist(1, mag__(i))+K(i);
 end
    
-back_feature = [ang_hist];
+back_feature = [ang_hist amp_hist];

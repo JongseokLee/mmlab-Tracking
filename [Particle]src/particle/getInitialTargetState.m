@@ -13,7 +13,7 @@ if flagMTI      % manual selection
     %         initGT(pos(2):pos(2)+pos(4), pos(1):pos(1)+pos(3), 1) = 1;
     %         close figure 1;
     
-    GT = load(['.\Dataset/' seq.seqName '/' 'groundtruth.txt']);
+    GT = load(['..\Dataset/' seq.seqName '/' 'groundtruth.txt']);
     TL_x = min(GT(startFrame,1:2:7));
     TL_y = min(GT(startFrame,2:2:8));
     BR_x = max(GT(startFrame,1:2:7));
