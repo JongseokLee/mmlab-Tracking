@@ -3,7 +3,7 @@ clc, clear;
 
 warning('off', 'MATLAB:MKDIR:DirectoryExists');
 warning('off', 'images:initSize:adjustingMag');
-addpath(genpath('[Particle]src'));
+addpath(genpath('[Particle]src'))
 resultFolder = '..\[Particle]Result';
 resultFolder_2015 = '..\Result';
 resultFolder_Ivan = '..\Result_Ivan';

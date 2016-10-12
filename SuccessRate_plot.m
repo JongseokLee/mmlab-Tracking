@@ -108,9 +108,9 @@ for seqIdx = 1: size(seqs)
     imwrite(img_result, [folderPath '/SuccessRate.png'], 'png', 'BitDepth',8);
     
     figure(seqIdx+100);title(['PrecisionRate  ' seqs{seqIdx}.seqName]);  drawnow; hold on;
-    figure(seqIdx+100); plot([0 : 0.02 : 1],mPrecisionRate     ,'LineWidth',1.5,'Color','r'); hold on;
-    figure(seqIdx+100); plot([0 : 0.02 : 1],mPrecisionRate_2015,'LineWidth',1.5,'Color','g'); hold on;
-    figure(seqIdx+100); plot([0 : 0.02 : 1],mPrecisionRate_Ivan,'LineWidth',1.5,'Color','b'); hold on;
+    figure(seqIdx+100); plot([0 : 1 : 50],mPrecisionRate     ,'LineWidth',1.5,'Color','r'); hold on;
+    figure(seqIdx+100); plot([0 : 1 : 50],mPrecisionRate_2015,'LineWidth',1.5,'Color','g'); hold on;
+    figure(seqIdx+100); plot([0 : 1 : 50],mPrecisionRate_Ivan,'LineWidth',1.5,'Color','b'); hold on;
     legend(['KW 2016 [' sprintf('%f',1-(mCenterError/50)) ']'],...
            ['KW 2015 [' sprintf('%f',1-(mCenterError_2015/50)) ']'],...
            ['Ivan         [' sprintf('%f',1-(mCenterError_Ivan/50)) ']']);
