@@ -40,7 +40,7 @@ sc_max = 0.2;
 
 %% Options
 flagMAP   = 0;    % flag for MAP estimate
-flagMTI   = 1;    % flag for the manual target initialization
+flagMTI   = 0;    % flag for the manual target initialization
 testPlot  = 0;    % flog for test plot
 BREAK     = 1;    % Tracking one sequence
 fsave_d   = 1;    % flag for saving result data such as corner points and center points.
