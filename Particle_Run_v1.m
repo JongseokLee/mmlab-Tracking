@@ -48,7 +48,7 @@ plot_PR_SR= 1;    % flag for ploting Precision rate and Succece
 
 fsave_r   = 0;    % flag for saving result of tracking in image file.
 
-for seqIdx = 22: size(seqs)
+for seqIdx = 1: size(seqs)
     folderPath = [resultFolder '/' seqs{seqIdx}.seqName result_version sprintf('%d',qp)]; mkdir(folderPath);
     
     %% INITIALIZATION
