@@ -6,7 +6,7 @@ d = sqrt(test.*ref);
 % average distance over the three distributions?
 
 
-d = sum(d)/length(d);
-d = sqrt(1-d);
+d = sum(d);
+d = sqrt(1.05 - d);
 
 
