@@ -15,7 +15,7 @@
 function [pvm] = getPVM(mv)
 
 % threshold for squared MV length limit
-ZERO_LEN_LIMIT_POW2 = 0.01;
+ZERO_LEN_LIMIT_POW2 = 0.0;
 
 % squared MV length calculation
 lengths = mv.hor.^2 + mv.ver.^2;

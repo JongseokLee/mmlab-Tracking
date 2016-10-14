@@ -16,27 +16,35 @@ seqs = cell(1,1);   seqIdx = 1;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 seqs{seqIdx}.seqName = 'Coastguard';      seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 100 ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 seqs{seqIdx}.seqName = 'Mobile';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 236 ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'FlowerGarden';    seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 50  ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 seqs{seqIdx}.seqName = 'Stefan';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 90  ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'City';            seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 100 ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'Foreman';         seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 100 ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'TableTennis';     seqs{seqIdx}.startFrame = 5  ;    seqs{seqIdx}.endFrame = 25  ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 
-seqs{seqIdx}.seqName = 'bag';             seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 196  ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 360 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'basketball';      seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 725  ;   seqs{seqIdx}.img_w = 576;   seqs{seqIdx}.img_h = 432 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'bolt1';           seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 350  ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 360 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'bolt2';           seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 293  ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 264 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'car1';            seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 742  ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 480 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'crossing';        seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 131  ;   seqs{seqIdx}.img_w = 1208;  seqs{seqIdx}.img_h = 680 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'dinosaur';        seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 326  ;   seqs{seqIdx}.img_w = 320;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'fish1';           seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 366  ;   seqs{seqIdx}.img_w = 456;   seqs{seqIdx}.img_h = 344 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'fish3';           seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 519  ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 360 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'fish4';           seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 682  ;   seqs{seqIdx}.img_w = 456;   seqs{seqIdx}.img_h = 256 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'hand';            seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 267  ;   seqs{seqIdx}.img_w = 320;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'handball1';       seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 377  ;   seqs{seqIdx}.img_w = 384;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'motocross1';      seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 164  ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 360 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'pedestrian2';     seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 713  ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 640 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-seqs{seqIdx}.seqName = 'racing';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 156  ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 480 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+seqs{seqIdx}.seqName = 'KiteSurf';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 84  ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 270 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+seqs{seqIdx}.seqName = 'KiteSurf';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 84  ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 270 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+
+
+
+
+
+% seqs{seqIdx}.seqName = 'FlowerGarden';    seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 50  ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'City';            seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 100 ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'Foreman';         seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 100 ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'TableTennis';     seqs{seqIdx}.startFrame = 5  ;    seqs{seqIdx}.endFrame = 25  ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% 
+% seqs{seqIdx}.seqName = 'bag';             seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 196  ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 360 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'basketball';      seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 725  ;   seqs{seqIdx}.img_w = 576;   seqs{seqIdx}.img_h = 432 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'bolt1';           seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 350  ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 360 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'bolt2';           seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 293  ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 264 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'car1';            seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 742  ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 480 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'crossing';        seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 131  ;   seqs{seqIdx}.img_w = 1208;  seqs{seqIdx}.img_h = 680 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'dinosaur';        seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 326  ;   seqs{seqIdx}.img_w = 320;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'fish1';           seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 366  ;   seqs{seqIdx}.img_w = 456;   seqs{seqIdx}.img_h = 344 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'fish3';           seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 519  ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 360 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'fish4';           seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 682  ;   seqs{seqIdx}.img_w = 456;   seqs{seqIdx}.img_h = 256 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'hand';            seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 267  ;   seqs{seqIdx}.img_w = 320;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'handball1';       seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 377  ;   seqs{seqIdx}.img_w = 384;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'motocross1';      seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 164  ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 360 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'pedestrian2';     seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 713  ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 640 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+% seqs{seqIdx}.seqName = 'racing';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 156  ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 480 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 seqs = seqs';

@@ -3,10 +3,9 @@ close all;
 
 warning('off', 'MATLAB:MKDIR:DirectoryExists');
 warning('off', 'images:initSize:adjustingMag');
-addpath(genpath('[Particle]src'))
-resultFolder      = '[Particle]Result';
-resultFolder_2015 = 'Result';
-resultFolder_Ivan = 'Result_Ivan';
+resultFolder = '..\[Particle]Result';
+resultFolder_2015 = '..\Result';
+resultFolder_Ivan = '..\Result_Ivan';
 result_version = '/Mask_MV_complete_QP_';
 %% Sequence Parameters
 qp = 22;                 %-Quantization Parameter
@@ -17,7 +16,7 @@ seqs = InitParams(qp);  %-Sequence info.
 flagMTI   = 1;    % flag for the manual target initialization
 testPlot  = 0;   % flog for test plot
 
-for seqIdx = 1 : size(seqs)
+for seqIdx = 7 : size(seqs)
     %% INITIALIZATION
     seq = seqs{seqIdx};
     [startFrame, endFrame, inputPathes, imgPathes, img_w, img_h] = getSeqParams(seq);
@@ -32,20 +31,16 @@ for seqIdx = 1 : size(seqs)
     
     result_path = [resultFolder '/' seqs{seqIdx}.seqName '/compare_MV_complete_QP_22']; mkdir(result_path);
     
-    data      =load([folderPath '/result.txt']);
-    data_Ivan =load([folderPath_Ivan '/result.txt']);
-    
     %% TRACKING
     %-Frame-level tracking
     fprintf('%3d.\t%s\tEvaluation Begin...\n',seqIdx, seq.seqName);   t_total = 0;
 
     TotalFrameNum = endFrame - startFrame-1;
     %% Groundtruth load
-    gt = load(['.\Dataset/' seqs{seqIdx}.seqName '/' seqs{seqIdx}.seqName '_gt.mat']);
+    gt = load(['..\Dataset/' seqs{seqIdx}.seqName '/' seqs{seqIdx}.seqName '_gt.mat']);
 
     gtCornersAll = gt.CornersAll;
 
-    
     %% Proposed 2016 data load
     mat_2016 = load([resultFolder '/' seq.seqName result_version sprintf('%d',qp) '/' seq.seqName '_2016.mat']);
     

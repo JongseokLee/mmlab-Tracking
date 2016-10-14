@@ -7,6 +7,7 @@ d = sqrt(test.*ref);
 
 
 d = sum(d);
-d = sqrt(1.05 - d);
+
+d = sqrt(1.001 - d);
 
 

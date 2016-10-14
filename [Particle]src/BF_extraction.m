@@ -1,22 +1,18 @@
-function [ back_feature, mag, max_mag,angle] = BF_extraction(targetState,fmv,est_motion,B_AREA_RATIO,nDirs,blockWise)
+function [ back_feature,targetFeature_MV, mag, max_mag,angle] = BF_extraction(targetState,temp_state,fmv,nDirs,blockWise)
 
 mag = sqrt(fmv.ver.^2 + fmv.hor.^2);
 angle = atan2(fmv.ver, fmv.hor );
 angle(angle == pi) = -pi;
 angle = angle+ pi;
-max_mag = max(max(mag));
+max_mag = min(blockWise)/16;
+mag(mag>max_mag) = max_mag;
 
-targetState(1) = targetState(1) - est_motion.ver;
-targetState(2) = targetState(2) - est_motion.hor;
+back_feature = get_MV_BF(mag,max_mag,angle, temp_state, blockWise,nDirs);
+fore_feature = get_MV_BF(mag,max_mag,angle, targetState,blockWise,nDirs);
 
-temp_state = targetState;
+back_feature =abs(back_feature - fore_feature);
+back_feature(1:8) = back_feature(1:8)/(2*sum(back_feature(1:8)));
+back_feature(9:16) = back_feature(9:16)/(2*sum(back_feature(9:16)));
 
-temp_state(5) = temp_state(5)*B_AREA_RATIO;
-temp_state(6) = temp_state(6)*B_AREA_RATIO;
-
-temp_state(5) = sqrt(temp_state(5)*temp_state(6));
-temp_state(6) = sqrt(temp_state(5)*temp_state(6));
-
-temp_state = round(temp_state);
-
-back_feature = get_MV_BF(mag,max_mag,angle, temp_state,blockWise,nDirs);
+targetFeature_MV = get_MV_FF(mag,max_mag,angle,targetState,blockWise,nDirs);
+end

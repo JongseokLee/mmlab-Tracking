@@ -5,17 +5,17 @@ warning('off', 'MATLAB:MKDIR:DirectoryExists');
 warning('off', 'images:initSize:adjustingMag');
 addpath(genpath('[Particle]src'))
 resultFolder      = '[Particle]Result';
-resultFolder_Ivan = 'Result_Ivan';
+resultFolder_Ivan = 'Result_Ivan'; 
 
 %% Sequence Parameters
 qp = 22;                %-Quantization Parameter 22, 27, 32, 37
 blkSize = 1;            %-Block size for blockwise
 seqs = InitParams(qp);  %-Sequence info.
 Save_gt = 1;                 
-Display_gt = 1;
+Display_gt = 0;
 
 % for seqIdx = 23 : size(seqs)
-for seqIdx = 16 : 22
+for seqIdx = 1 : 22
     %% INITIALIZATION
     seq = seqs{seqIdx};
     [startFrame, endFrame, inputPathes, imgPathes, img_w, img_h] = getSeqParams(seq);
@@ -25,10 +25,10 @@ for seqIdx = 16 : 22
     blk_w = img_w / blkSize; blk_h = img_h / blkSize;
     blockWise = [blk_h, blk_w];
     
-    if  seqIdx > 7
+    if  seqIdx > 6
         GT = load(['.\Dataset/' seq.seqName '/' 'groundtruth.txt']);
     end
-    TotalFrameNum = endFrame - startFrame-1;
+    TotalFrameNum = endFrame - startFrame;
     
     CenterAll  = cell(1,TotalFrameNum);
     CornersAll = cell(1,TotalFrameNum);
@@ -38,7 +38,8 @@ for seqIdx = 16 : 22
     for t = startFrame+1 : 1 : endFrame
         
         %% Input reading
-        if  seqIdx < 8      % manual selection
+        if  seqIdx < 7
+            % manual selection
             initGT = imread(imgPathes.groundTruth{t});
             initGT = initGT(1:img_h,1:img_w,:);
             % complement if necessary
@@ -57,11 +58,11 @@ for seqIdx = 16 : 22
             
             %% RESULT
             %-Show estimated result to a image file
-            rect = [rec(3), rec(1), rec(4)-rec(3), rec(2)-rec(1)];
+            rect = [rec(3) rec(1) rec(4)-rec(3) rec(2)-rec(1)];
             
-            center = [rect(2)+rect(4)/2 rect(1)+rect(3)/2];
+            center =  [rect(1)+rect(3)/2 rect(2)+rect(4)/2];
             corners = [rect(1) rect(1)         rect(1)+rect(3) rect(1)+rect(3) rect(1);
-                rect(2) rect(2)+rect(4) rect(2)+rect(4) rect(2)         rect(2)];
+                       rect(2) rect(2)+rect(4) rect(2)+rect(4) rect(2)         rect(2)];
             
             CenterAll{t - startFrame}  = center;
             CornersAll{t - startFrame} = corners;
@@ -77,7 +78,7 @@ for seqIdx = 16 : 22
             Y = GT(t,2:2:8);
             Y(5) = Y(1);
             
-            CenterAll{ t-startFrame}  = [mean(X(1:4)) mean(Y(1:4))];
+            CenterAll {t-startFrame}  = [mean(X(1:4)) mean(Y(1:4))];
             CornersAll{t-startFrame}  = [X ; Y];
             if Display_gt ==1;
                 figure(99);
@@ -89,7 +90,7 @@ for seqIdx = 16 : 22
         
     end
     if Save_gt ==1
-        save(['.\Dataset/' seqs{seqIdx}.seqName '/' seqs{seqIdx}.seqName '_gt.mat'], 'CornersAll','CenterAll');
+        save(['..\Dataset/' seqs{seqIdx}.seqName '/' seqs{seqIdx}.seqName '_gt.mat'], 'CornersAll','CenterAll');
     end
     fprintf('%3d.\t%s\tCreate GT mat End\n\n', seqIdx, seq.seqName);
     
