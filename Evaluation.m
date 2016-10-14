@@ -7,6 +7,7 @@ resultFolder = '..\[Particle]Result';
 resultFolder_2015 = '..\Result';
 resultFolder_Ivan = '..\Result_Ivan';
 result_version = '/Mask_MV_complete_QP_';
+
 %% Sequence Parameters
 qp = 22;                 %-Quantization Parameter
 blkSize = 1;            %-Block size for blockwise
@@ -16,7 +17,7 @@ seqs = InitParams(qp);  %-Sequence info.
 flagMTI   = 1;    % flag for the manual target initialization
 testPlot  = 0;   % flog for test plot
 
-for seqIdx = 7 : size(seqs)
+for seqIdx = 2 : size(seqs)
     %% INITIALIZATION
     seq = seqs{seqIdx};
     [startFrame, endFrame, inputPathes, imgPathes, img_w, img_h] = getSeqParams(seq);
@@ -25,11 +26,11 @@ for seqIdx = 7 : size(seqs)
     imgSize = [img_h, img_w];
     blk_w = img_w / blkSize; blk_h = img_h / blkSize;
     blockWise = [blk_h, blk_w];
-   
-    folderPath      = [resultFolder '/' seqs{seqIdx}.seqName '/Mask_MV_complete_QP_' sprintf('%d',qp)]; mkdir(folderPath);
+    folderPath      = [resultFolder '/' seqs{seqIdx}.seqName '/final_QP_' sprintf('%d',qp) ]; mkdir(folderPath);
+%     folderPath      = [resultFolder '/' seqs{seqIdx}.seqName '/Mask_MV_complete_QP_' sprintf('%d',qp)]; mkdir(folderPath);
     folderPath_Ivan = [resultFolder_Ivan '/' seqs{seqIdx}.seqName '/Mask_MV_complete_QP_' sprintf('%d',qp)]; mkdir(folderPath_Ivan);
     
-    result_path = [resultFolder '/' seqs{seqIdx}.seqName '/compare_MV_complete_QP_22']; mkdir(result_path);
+    result_path = [resultFolder '/' seqs{seqIdx}.seqName '/compare_MV_complete_QP_' sprintf('%d',qp)]; mkdir(result_path);
     
     %% TRACKING
     %-Frame-level tracking
