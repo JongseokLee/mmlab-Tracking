@@ -7,18 +7,28 @@ addpath(genpath('[Particle]src'))
 resultFolder = '..\[Particle]Result';
 resultFolder_2015 = '..\Result';
 resultFolder_Ivan = '..\Result_Ivan';
-result_version = '/Mask_MV_test_QP_';
+result_version = '/Mask_MV_complete_QP_';
 %% Sequence Parameters
 qp = 22;                %-Quantization Parameter 22, 27, 32, 37
 blkSize = 1;            %-Block size for blockwise
 seqs = InitParams(qp);  %-Sequence info.
+alpa = 0.75;
+sigma =0.07;
+for j = 1: 1001
+        for i = 1 : 1001
+        w(j,i) = exp(-((((i-1)/1000).^alpa).*(((j-1)/1000).^(1-alpa)))/(2*sigma));
+    end
+end
+figure(10); 
+contour3(0 : 0.001 : 1,0 : 0.001 : 1,w);
+hold on;
 
 %% Particle Filter Parameters
-nParticles = 200;       % # of particles
-wSig = 0.05;
-sNoise = [5.0,5.0, 0.1 , 0.1 ,0.1, 0.1, 0.2 ];
-B_AREA_RATIO = 5;         %back_ground_region_parameter
-alpa = 0.8;               %update rate
+nParticles = 1000;       % # of particles
+wSig = 0.07;
+sNoise = [4.0,4.0, 0.1 , 0.1 ,0.2, 0.2, 0.2 ];
+B_AREA_RATIO = 3;         %back_ground_region_parameter
+alpa = 0.1;               %update rate
 nDirs = 8;                % # of orientations
 
 % range of particles during initialization
@@ -35,15 +45,15 @@ sc_max = 0.2;
 
 %% Options
 flagMAP   = 0;    % flag for MAP estimate
-flagMTI   = 1;    % flag for the manual target initialization
-testPlot  = 1;    % flog for test plot
+flagMTI   = 0;    % flag for the manual target initialization
+testPlot  = 0;    % flog for test plot
 BREAK     = 1;    % Tracking one sequence
-fsave_d   = 0;    % flag for saving result data such as corner points and center points.
-plot_PR_SR= 0;    % flag for ploting Precision rate and Succece
+fsave_d   = 1;    % flag for saving result data such as corner points and center points.
+plot_PR_SR= 1;    % flag for ploting Precision rate and Succece
 
 fsave_r   = 0;    % flag for saving result of tracking in image file.
 
-for seqIdx = 4: size(seqs)
+for seqIdx = 2: size(seqs)
     folderPath = [resultFolder '/' seqs{seqIdx}.seqName result_version sprintf('%d',qp)]; mkdir(folderPath);
     
     %% INITIALIZATION
@@ -134,7 +144,8 @@ for seqIdx = 4: size(seqs)
         %% update (observation likelihood)
         weights = calWeight(particleStates, blockWise, targetFeature_MV, wSig, nDirs,mag,max_mag,angle,BF);
         
-        % estimate target state
+        % estimate target statez
+        
         if ~flagMAP
             targetState =  estimate( particleStates, weights );
         else
@@ -145,18 +156,18 @@ for seqIdx = 4: size(seqs)
         Feature_MV       = get_MV_FF(mag,max_mag,angle, targetState,blockWise,nDirs);
         
         targetFeature_MV = (1-alpa)*targetFeature_MV + alpa*Feature_MV;
-%         
-%         [A ] = gtCenterAll{t-startFrame};
-%         [B ] = [targetState(2) targetState(1)];
-%         if norm(A-B) > 150
-%             if fsave_d == 1
-%                 for i = t : endFrame
-%                     CenterAll {i - startFrame} = [ 0 0];
-%                     CornersAll{i - startFrame} = [ 0 0 0 0 0 ; 0 0 0 0 0];
-%                 end
-%             end
-%             break;
-%         end
+        
+        [A ] = gtCenterAll{t-startFrame};
+        [B ] = [targetState(2) targetState(1)];
+        if norm(A-B) > 150
+            if fsave_d == 1
+                for i = t : endFrame
+                    CenterAll {i - startFrame} = [ 0 0];
+                    CornersAll{i - startFrame} = [ 0 0 0 0 0 ; 0 0 0 0 0];
+                end
+            end
+            break;
+        end
         
         rec = getRecState(targetState,blockWise);
         targetRec = zeros(blockWise);   targetRec(rec(1):rec(2),rec(3):rec(4)) = 1;

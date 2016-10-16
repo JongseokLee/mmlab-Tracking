@@ -18,9 +18,6 @@ seqs{seqIdx}.seqName = 'Coastguard';      seqs{seqIdx}.startFrame = 2  ;    seqs
 seqs{seqIdx}.seqName = 'Mobile';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 236 ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 seqs{seqIdx}.seqName = 'Stefan';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 90  ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 
-seqs{seqIdx}.seqName = 'KiteSurf';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 84  ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 270 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-
-
 % seqs{seqIdx}.seqName = 'FlowerGarden';    seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 50  ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 % seqs{seqIdx}.seqName = 'City';            seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 100 ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 % seqs{seqIdx}.seqName = 'Foreman';         seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 100 ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
@@ -128,8 +125,8 @@ seqs{seqIdx}.seqName = 'KiteSurf';          seqs{seqIdx}.startFrame = 2  ;    se
 % seqs{seqIdx}.seqName = 'Human5';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 713  ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 640 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 % seqs{seqIdx}.seqName = 'Human7';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 250  ;   seqs{seqIdx}.img_w = 320;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 % seqs{seqIdx}.seqName = 'Human8';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 128  ;   seqs{seqIdx}.img_w = 320;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-% seqs{seqIdx}.seqName = 'Jogging';         seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 307  ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
-% seqs{seqIdx}.seqName = 'KiteSurf';        seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 84   ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 272 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+seqs{seqIdx}.seqName = 'Jogging';         seqs{seqIdx}.startFrame = 67  ;    seqs{seqIdx}.endFrame = 307  ;   seqs{seqIdx}.img_w = 352;   seqs{seqIdx}.img_h = 288 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
+seqs{seqIdx}.seqName = 'KiteSurf';        seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 84   ;   seqs{seqIdx}.img_w = 480;   seqs{seqIdx}.img_h = 272 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 % seqs{seqIdx}.seqName = 'Lemming';         seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 1336 ;   seqs{seqIdx}.img_w = 640;   seqs{seqIdx}.img_h = 480 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 % seqs{seqIdx}.seqName = 'Man';             seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 134  ;   seqs{seqIdx}.img_w = 241;   seqs{seqIdx}.img_h = 193 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;
 % seqs{seqIdx}.seqName = 'Mhyang';          seqs{seqIdx}.startFrame = 2  ;    seqs{seqIdx}.endFrame = 1490 ;   seqs{seqIdx}.img_w = 320;   seqs{seqIdx}.img_h = 240 ;   seqs{seqIdx}.qp = qp;    seqIdx = seqIdx + 1;

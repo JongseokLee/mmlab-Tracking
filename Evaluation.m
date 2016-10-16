@@ -9,7 +9,7 @@ resultFolder_Ivan = '..\Result_Ivan';
 result_version = '/Mask_MV_complete_QP_';
 
 %% Sequence Parameters
-qp = 22;                 %-Quantization Parameter
+qp = 37   ;              %-Quantization Parameter
 blkSize = 1;            %-Block size for blockwise
 seqs = InitParams(qp);  %-Sequence info.
 
@@ -83,7 +83,7 @@ for seqIdx = 2 : size(seqs)
         frm = getframe(gcf);
         [img_result] = frame2im(frm);
         imwrite(img_result, [result_path '/' sprintf('%04d',t) '.png'], 'png', 'BitDepth',8);
-        
+        hold off;
     end
     fprintf('%3d.\t%s\tEvaluation End\n\n', seqIdx, seq.seqName);
     break;

@@ -42,12 +42,12 @@ K = max(K)-K;
 K=K/(2*sum(K));
 
 
-ang_hist = zeros(1,bins); 
-amp_hist = zeros(1,bins);
+ang_hist = zeros(bins,1); 
+amp_hist = zeros(bins,1);
 for i = 1 : rows*cols
-    ang_hist(1,angle_(i)) = ang_hist(1,angle_(i))+K(i);
-    amp_hist(1,mag__(i)) = amp_hist(1, mag__(i))+K(i);
+    ang_hist(angle_(i),1) = ang_hist(angle_(i),1)+K(i);
+    amp_hist(mag__(i),1) = amp_hist(mag__(i),1)+K(i);
 end
  
-fore_feature = [ang_hist amp_hist];
+fore_feature = [ang_hist; amp_hist];
 % fore_feature = [ang_hist];

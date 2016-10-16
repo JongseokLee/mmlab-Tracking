@@ -14,10 +14,10 @@ blkSize = 1;            %-Block size for blockwise
 seqs = InitParams(qp);  %-Sequence info.
 
 %% Particle Filter Parameters
-nParticles = 200;       % # of particles
-wSig = 0.04;
-sNoise = [10.0,10.0, 0.1 , 0.1 ,0.1, 0.1, 0.2 ];
-B_AREA_RATIO = 6;         %back_ground_region_parameter
+nParticles = 1000;       % # of particles
+wSig = 0.03;
+sNoise = [4.0,4.0, 0.1 , 0.1 ,0.1, 0.1, 0.2 ];
+B_AREA_RATIO = 5;         %back_ground_region_parameter
 alpa = 0.8;               %update rate
 nDirs = 8;                % # of orientations
 
@@ -35,7 +35,7 @@ sc_max = 0.2;
 
 %% Options
 flagMAP   = 0;    % flag for MAP estimate
-flagMTI   = 1;    % flag for the manual target initialization
+flagMTI   = 0;    % flag for the manual target initialization
 testPlot  = 0;    % flog for test plot
 BREAK     = 1;    % Tracking one sequence
 fsave_d   = 1;    % flag for saving result data such as corner points and center points.
@@ -43,7 +43,7 @@ plot_PR_SR= 1;    % flag for ploting Precision rate and Succece
 
 fsave_r   = 0;    % flag for saving result of tracking in image file.
 
-for seqIdx = 7: size(seqs)
+for seqIdx = 2: size(seqs)
     folderPath = [resultFolder '/' seqs{seqIdx}.seqName result_version sprintf('%d',qp)]; mkdir(folderPath);
     
     %% INITIALIZATION
@@ -71,9 +71,9 @@ for seqIdx = 7: size(seqs)
     
     % MV estimation for intra-coded blocks & GMEC
     [mv, predMode] = estimateIntraMV(puSize, predMode, mv, blockWise);
-    [est_motion,temp_state ]= roiProjection(targetRec, fmv, targetState,B_AREA_RATIO);
-    [est_motion]= preMaskProjection(targetRec, fmv, blockWise, blkSize);
-    
+    [est_motion_1,temp_state ]= roiProjection(targetRec, fmv, targetState,blockWise,B_AREA_RATIO);
+%     [est_motion]= preMaskProjection(targetRec, fmv, blockWise, blkSize);
+  
     %% Background Feature Extraction
     [ BF,targetFeature_MV, mag, max_mag,angle ] = BF_extraction(targetState,temp_state,fmv,nDirs,blockWise);
     
@@ -111,8 +111,8 @@ for seqIdx = 7: size(seqs)
         %% PRE-PROCESSING
         % MV estimation for intra-coded blocks & GMEC
         [mv, predMode] = estimateIntraMV(puSize, predMode, mv, blockWise);
-        [ est_motion ] = preMaskProjection(targetRec, fmv, blockWise, blkSize);
-
+%         [ est_motion ] = preMaskProjection(targetRec, fmv, blockWise, blkSize);
+        [est_motion,temp_state ]= roiProjection(targetRec, fmv, targetState,blockWise,B_AREA_RATIO);
         %%  PARTICLE FILTERS
         % resampling
         [particleStates,~] = rs_systematic( particleStates, weights);
@@ -122,8 +122,8 @@ for seqIdx = 7: size(seqs)
         end
         
         %% background and foreground feature extraction
-        [ BF,targetFeature_MV, mag, max_mag,angle ] = BF_extraction(targetState,fmv,est_motion,B_AREA_RATIO,nDirs,blockWise);
-  
+        [ BF,targetFeature_MV, mag, max_mag,angle ] = BF_extraction(targetState,temp_state,fmv,nDirs,blockWise);
+ 
         %% prediction (importance sampling)
         particleStates = propagate( particleStates,sNoise, blockWise ,est_motion);
         

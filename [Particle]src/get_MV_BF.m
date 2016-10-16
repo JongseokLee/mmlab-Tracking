@@ -41,7 +41,7 @@ back_feature = hist(angle_,bins);
 mag__   = reshape(mag_, rows*cols,1);
 mag__ = floor(mag__/((max_mag*1.01)/bins))+1;
 back_feature_2 = hist(mag__,bins);
-back_feature = [back_feature back_feature_2];
+back_feature = [back_feature back_feature_2]';
 
 % K=reshape(K,rows*cols,1);
 % K=K/(sum(K));

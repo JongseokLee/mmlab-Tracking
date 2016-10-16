@@ -10,7 +10,7 @@ resultFolder_Ivan = '..\Result_Ivan';
 
 result_version = '/Mask_MV_complete_QP_';
 %% Sequence Parameters
-qp = 37;                %-Quantization Parameter
+qp = 22;                %-Quantization Parameter
 blkSize = 1;            %-Block size for blockwise
 seqs = InitParams(qp);  %-Sequence info.
 
