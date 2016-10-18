@@ -1,4 +1,4 @@
-function weights = calWeight(particleStates,blockWise,targetFeature_MV,sigma, nDirs,mag,max_mag,angle,back_feature)
+function weights = calWeight(particleStates,blockWise,targetFeature_MV,sigma, nDirs,mag,max_mag,angle,back_feature, alpa)
 % NOTE : x-axis is vertical in this case
 % state = [ x, y, vx, vy, Hx, Hy, sc]
 % [x,y] - centroid of the target
@@ -6,7 +6,7 @@ function weights = calWeight(particleStates,blockWise,targetFeature_MV,sigma, nD
 % [Hx,Hy] - size of the target (for now a rectangle, maybe an ellispe in the future)
 % sc - scaling factor
 
-alpa = 0.9;
+% alpa = 0.9;
 nParticles = size(particleStates,1);
 
 mv_d       = zeros(nParticles,1);
