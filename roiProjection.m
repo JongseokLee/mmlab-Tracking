@@ -2,11 +2,11 @@ function [est_motion, temp_state] = roiProjection(Mask, mv, targetState,blockWis
 
 temp_state = targetState;
 
-temp_state(5) = temp_state(5)*B_AREA_RATIO;
-temp_state(6) = temp_state(6)*B_AREA_RATIO;
+temp_state(5) = temp_state(5);
+temp_state(6) = temp_state(6);
 
-temp_state(5) = sqrt(temp_state(5)*temp_state(6));
-temp_state(6) = sqrt(temp_state(5)*temp_state(6));
+temp_state(5) = sqrt(temp_state(5)*temp_state(6))*B_AREA_RATIO;
+temp_state(6) = sqrt(temp_state(5)*temp_state(6))*B_AREA_RATIO;
 
 temp_state = round(temp_state);
 

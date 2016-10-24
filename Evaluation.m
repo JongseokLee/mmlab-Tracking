@@ -9,7 +9,7 @@ resultFolder_Ivan = '..\Result_Ivan';
 result_version = '/Mask_MV_complete_QP_';
 
 %% Sequence Parameters
-qp = 37   ;              %-Quantization Parameter
+qp = 22   ;              %-Quantization Parameter
 blkSize = 1;            %-Block size for blockwise
 seqs = InitParams(qp);  %-Sequence info.
 
@@ -17,7 +17,7 @@ seqs = InitParams(qp);  %-Sequence info.
 flagMTI   = 1;    % flag for the manual target initialization
 testPlot  = 0;   % flog for test plot
 
-for seqIdx = 2 : size(seqs)
+for seqIdx = 1 : size(seqs)
     %% INITIALIZATION
     seq = seqs{seqIdx};
     [startFrame, endFrame, inputPathes, imgPathes, img_w, img_h] = getSeqParams(seq);

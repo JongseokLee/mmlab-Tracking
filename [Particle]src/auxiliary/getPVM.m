@@ -27,6 +27,7 @@ mv.ver = mv.ver(lengths > ZERO_LEN_LIMIT_POW2);
 % PVM length calculation (median of lengths)
 length_PVM = median(lengths)^.5;
 
+
 if length(mv.hor) > 1
     % angle calculation
     angles = atan2(mv.ver, mv.hor);

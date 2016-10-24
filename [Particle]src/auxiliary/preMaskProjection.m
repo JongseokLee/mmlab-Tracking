@@ -1,4 +1,4 @@
-function [pvm] = preMaskProjection(preMask, mv, blockWise, blkSize)
+function [pvm] = preMaskProjection(preMask, mv, blockWise, blkSize,roiK,center)
 % state = zeros(7);
 
 % block info.
@@ -37,7 +37,8 @@ for i=1 : blk_h
         end
     end
 end
-[pvm] = getPVM(mv_t);
+ [pvm] = getPVM(mv_t);
+
 % [~, top, bottom, left, right] = getROI(mask, 1, 0);
 % mask(top:bottom,left:right) = imfill(mask(top:bottom,left:right), 'hole');
 end

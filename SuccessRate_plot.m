@@ -16,7 +16,7 @@ seqs = InitParams(qp);  %-Sequence info.
 
 
 % for seqIdx = 23 : size(seqs)
-for seqIdx =2: size(seqs)
+for seqIdx =1: size(seqs)
 
     
     %% INITIALIZATION

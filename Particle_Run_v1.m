@@ -12,23 +12,14 @@ result_version = '/Mask_MV_complete_QP_';
 qp = 22;                %-Quantization Parameter 22, 27, 32, 37
 blkSize = 1;            %-Block size for blockwise
 seqs = InitParams(qp);  %-Sequence info.
-alpa = 0.75;
-sigma =0.07;
-for j = 1: 1001
-        for i = 1 : 1001
-        w(j,i) = exp(-((((i-1)/1000).^alpa).*(((j-1)/1000).^(1-alpa)))/(2*sigma));
-    end
-end
-figure(10); 
-contour3(0 : 0.001 : 1,0 : 0.001 : 1,w);
-hold on;
+
 
 %% Particle Filter Parameters
-nParticles = 1000;       % # of particles
-wSig = 0.07;
-sNoise = [4.0,4.0, 0.1 , 0.1 ,0.2, 0.2, 0.2 ];
-B_AREA_RATIO = 3;         %back_ground_region_parameter
-alpa = 0.1;               %update rate
+nParticles = 100;       % # of particles
+wSig = 0.3;
+sNoise = [1.0,1.0, 0.1 , 0.1 ,0.1, 0.1, 0.2 ];
+B_AREA_RATIO = 5;         %back_ground_region_parameter
+alpa = 0.8;               %update rate
 nDirs = 8;                % # of orientations
 
 % range of particles during initialization
@@ -75,7 +66,7 @@ for seqIdx = 2: size(seqs)
  
     targetRec = zeros(blockWise);
     targetRec(rec(1):rec(2), rec(3):rec(4)) = 1;
-    
+
     % init particles
     particleStates = initParticles( targetState, nParticles, [vx_max; vy_max; sc_max], blockWise );
     
@@ -83,10 +74,11 @@ for seqIdx = 2: size(seqs)
     [mv, predMode] = estimateIntraMV(puSize, predMode, mv, blockWise);
     [est_motion_1,temp_state ]= roiProjection(targetRec, fmv, targetState,blockWise,B_AREA_RATIO);
 %     [est_motion]= preMaskProjection(targetRec, fmv, blockWise, blkSize);
-  
-    %% Background Feature Extraction
-    [ BF,targetFeature_MV, mag, max_mag,angle ] = BF_extraction(targetState,temp_state,fmv,nDirs,blockWise);
     
+    %% Background Feature Extraction
+    [ BF, mag, max_mag,angle ] = BF_extraction(targetState,temp_state,fmv,nDirs,blockWise);
+    
+    targetFeature_MV           = get_MV_FF(mag,max_mag,angle, targetState,blockWise,nDirs);
     %% set weights
     weights = calWeight(particleStates, blockWise, targetFeature_MV, wSig, nDirs,mag,max_mag,angle,BF);
     
@@ -132,7 +124,7 @@ for seqIdx = 2: size(seqs)
         end
         
         %% background and foreground feature extraction
-        [ BF,targetFeature_MV, mag, max_mag,angle ] = BF_extraction(targetState,temp_state,fmv,nDirs,blockWise);
+        [ BF, mag, max_mag,angle ] = BF_extraction(targetState,temp_state,fmv,nDirs,blockWise);
  
         %% prediction (importance sampling)
         particleStates = propagate( particleStates,sNoise, blockWise ,est_motion);
