@@ -12,10 +12,10 @@
 %   pvm.hor 			horizontal component of PVM motion vector
 %   pvm.ver 			vertical component of PVM motion vector
 
-function [pvm] = getPVM(mv)
+function [pvm] = getPVM(mv, ZERO_LEN_LIMIT_POW2)
 
 % threshold for squared MV length limit
-ZERO_LEN_LIMIT_POW2 = 0.0;
+% ZERO_LEN_LIMIT_POW2 = 0.0;
 
 % squared MV length calculation
 lengths = mv.hor.^2 + mv.ver.^2;

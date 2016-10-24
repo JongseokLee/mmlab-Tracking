@@ -17,7 +17,7 @@
 %   MV.ver 			vertical component of motion vectors
 %   blkType			block type (coding mode info)
 
-function [mv, predMode] = estimateIntraMV(puSize, predMode, mv, blockWise)
+function [mv, predMode] = estimateIntraMV(puSize, predMode, mv, blockWise, ZERO_LEN_LIMIT_POW2)
 
 blk_h = blockWise(1);
 blk_w = blockWise(2);
@@ -82,7 +82,7 @@ for i = 17 : 2 : blk_h - 16
                 mv.ver(i:min(i+blksize-1,blk_h),j:min(blk_w,j+blksize-1)) = 0;
             else            
                 % get PVM from neighboring MVs
-                [pvm] = getPVM(neigMV);
+                [pvm] = getPVM(neigMV, ZERO_LEN_LIMIT_POW2);
                 
                 % set the MVs of current MB to PVM
                 mv.hor(i:i+blksize-1,j:j+blksize-1) = pvm.hor;
