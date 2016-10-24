@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-function [pvm] = preMaskProjection(preMask, mv, blockWise, blkSize,roiK,center)
-=======
 function [pvm] = preMaskProjection(preMask, mv, blockWise, blkSize, ZERO_LEN_LIMIT_POW2)
->>>>>>> dd4eaeae680f746c4ad41f962a86295259f64a47
 % state = zeros(7);
 
 % block info.
@@ -41,12 +37,7 @@ for i=1 : blk_h
         end
     end
 end
-<<<<<<< HEAD
- [pvm] = getPVM(mv_t);
-
-=======
 [pvm] = getPVM(mv_t, ZERO_LEN_LIMIT_POW2);
->>>>>>> dd4eaeae680f746c4ad41f962a86295259f64a47
 % [~, top, bottom, left, right] = getROI(mask, 1, 0);
 % mask(top:bottom,left:right) = imfill(mask(top:bottom,left:right), 'hole');
 end
